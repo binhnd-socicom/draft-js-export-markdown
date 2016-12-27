@@ -18,7 +18,7 @@ const {
   UNDERLINE,
 } = INLINE_STYLE;
 
-const CODE_INDENT = '    ';
+const CODE_INDENT = '```';
 
 class MarkupGenerator {
   blocks: Array<ContentBlock>;
@@ -130,7 +130,7 @@ class MarkupGenerator {
       }
       case BLOCK_TYPE.CODE: {
         this.insertLineBreaks(1);
-        this.output.push(CODE_INDENT + this.renderBlockContent(block) + '\n');
+        this.output.push(`${CODE_INDENT}\n${this.renderBlockContent(block)}\n${CODE_INDENT}`);
         break;
       }
       default: {
